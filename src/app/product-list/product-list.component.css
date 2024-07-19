@@ -1,0 +1,40 @@
+.sale-btn {
+    border-radius: 20px; 
+    background-color: #6779C8; 
+    color: white;
+    font-weight:bold; 
+    border: none; 
+  }
+  
+  .sale-btn:hover {
+    background-color:#3a4781; 
+  }
+
+  .custom-text {
+    font-size: 25px;
+    font-weight: bold; 
+    color:black;
+    margin-left: 10px;
+    vertical-align:middle; 
+  }
+
+  .product-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .star-rating {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .star {
+    font-size: 20px;
+    color: lightgray;
+  }
+  
+  .star.filled {
+    color: black;
+}
