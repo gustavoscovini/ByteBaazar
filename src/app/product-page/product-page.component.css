@@ -1,0 +1,50 @@
+/* Ajusta o tamanho da fonte e o espaçamento para o nome do produto */
+.product-name {
+    font-size: 2.5rem; /* Tamanho maior para o nome do produto */
+    margin-bottom: 1rem; /* Espaço abaixo do nome do produto */
+  }
+  
+  /* Ajusta o tamanho da fonte e o espaçamento para as informações do produto */
+  .product-info {
+    font-size: 1.2rem; /* Tamanho da fonte maior para a informação do produto */
+    margin-bottom: 1rem; /* Espaço abaixo da informação do produto */
+    line-height: 3; /* Espaço entre linhas */
+  }
+  
+  /* Ajusta o tamanho da fonte e o espaçamento para a descrição do produto */
+  .product-description {
+    font-size: 1.1rem; /* Tamanho da fonte para a descrição do produto */
+    margin-bottom: 1rem; /* Espaço abaixo da descrição do produto */
+  }
+  
+  /* Ajusta o tamanho da fonte e o espaçamento para o preço do produto */
+  .product-price {
+    font-size: 1.5rem; /* Aumenta o tamanho da fonte do preço */
+    font-weight: bold; /* Deixa o preço em negrito */
+    margin-bottom: 0.3rem; /* Espaço abaixo do preço */
+  }
+  
+  /* Ajusta o tamanho e o estilo do valor do preço */
+  .price-amount {
+    color: #007bff; /* Cor azul para o valor do preço */
+    font-size: 3rem; /* Tamanho maior para o valor do preço */
+  }
+  
+
+.price-promotion {
+    font-size: 1.2rem; /* Tamanho menor para a promoção */
+  }
+  
+  .price-discount {
+    font-size: 1.2rem; /* Tamanho do texto do preço com desconto */ 
+    font-weight: bold;
+  }
+
+  .star-rating {
+    font-size: 1.5rem; /* Adjust size as needed */
+  }
+  
+  .rating-value {
+    font-size: 1.2rem;
+    color: #333;
+  }
