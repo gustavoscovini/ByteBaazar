@@ -1,108 +1,60 @@
 <app-nav></app-nav>
 
-<div *ngIf="product" class="container container-custom my-4 p-4 ">
-  <h1 class="product-name">{{ product.name }}</h1>
-</div>
-
 <div *ngIf="product" class="container my-5">
-  <div class="row">
-    <!-- Imagem do Produto -->
-    <div class="col-md-6 mb-8">
-      <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image img-fluid">
-    </div>
-
-    <!-- Informações do Produto -->
-    <div class="col-md-6">
-      <!-- Rating Section -->
-      <div class="d-flex align-items-center mb">
-        <div class="star-rating me-2">
-          <i class="fas fa-star text-warning"></i>
-          <i class="fas fa-star text-warning"></i>
-          <i class="fas fa-star text-warning"></i>
-          <i class="fas fa-star text-warning"></i>
-          <i class="fas fa-star text-warning"></i>
+    <div class="row">
+        <!-- Imagem do Produto -->
+        <div class="col-md-6 mb-8">
+            <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image img-fluid">
         </div>
-        <span class="rating-value">(4.6)</span>
-      </div>
-      
-      <p class="d-inline product-info">
-        Vendido e entregue por: <strong>ByteBaazar</strong> |
-        <span class="text-success">Em estoque</span>
-      </p>
-      <p class="product-description">{{ product.description }}</p>
-      <p class="product-price">
-        <span class="price-amount">R$ {{ priceWithDiscount }}</span>
-      </p>
-      <p class="price-promotion">
-        À vista no PIX com até <strong>10% OFF</strong>
-      </p>
-      <p class="price-discount">
-        <span class="discount-price">R$ {{ product.price }}</span>
-      </p>
-      <p>Em até 10x de R$: {{ priceInstallment }} sem juros no cartão</p>
-      <div class="d-flex justify-content-end">
-        <button class="btn btn-primary btn-lg" (click)="addToCart()">
-          <i class="fas fa-shopping-cart me-4"></i> COMPRAR
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Informações Adicionais -->
-<div class="container my-5 p-4 border rounded bg-light">
-  <h2 class="mb-4">
-    <i class="fas fa-info-circle me-2"></i> INFORMAÇÕES TÉCNICAS
-  </h2>
-  <dl class="row">
-    <dt class="col-sm-4">Marca:</dt>
-    <dd class="col-sm-8">ASUS</dd>
-    
-    <dt class="col-sm-4">Modelo:</dt>
-    <dd class="col-sm-8">912-V397-664</dd>
-    
-    <dt class="col-sm-4">GPU:</dt>
-    <dd class="col-sm-8">NVIDIA® GeForce RTX™ 3070</dd>
-    
-    <dt class="col-sm-4">Interface:</dt>
-    <dd class="col-sm-8">PCI Express® Gen 4</dd>
-    
-    <dt class="col-sm-4">Clock:</dt>
-    <dd class="col-sm-8">Boost: 1807 MHz</dd>
-    
-    <dt class="col-sm-4">Núcleos CUDA:</dt>
-    <dd class="col-sm-8">3584 Unidades</dd>
-    
-    <dt class="col-sm-4">Velocidade de memória:</dt>
-    <dd class="col-sm-8">15 Gbps</dd>
-    
-    <dt class="col-sm-4">Tamanho de Memória:</dt>
-    <dd class="col-sm-8">12GB GDDR6</dd>
-    
-    <dt class="col-sm-4">Interface de memória:</dt>
-    <dd class="col-sm-8">192-bits</dd>
-    
-    <dt class="col-sm-4">Entradas:</dt>
-    <dd class="col-sm-8">
-      3 x DisplayPort (v1.4) <br>
-      1 x HDMI™ (suporta 4K a 120Hz conforme especificado em HDMI™ 2.1)
-    </dd>
-    
-    <dt class="col-sm-4">Suporte HDCP:</dt>
-    <dd class="col-sm-8">Sim</dd>
-    
-    <dt class="col-sm-4">Conectores:</dt>
-    <dd class="col-sm-8">1 x 8 Pinos</dd>
-    
-    <dt class="col-sm-4">DirectX:</dt>
-    <dd class="col-sm-8">12API</dd>
-    
-    <dt class="col-sm-4">OpenGL:</dt>
-    <dd class="col-sm-8">4.6</dd>
-    
-    <dt class="col-sm-4">Dimensões:</dt>
-    <dd class="col-sm-8">235 x 124 x 42 mm</dd>
-  </dl>
+        <!-- Informações do Produto -->
+        <div class="col-md-6">
+            <!-- Nome do Produto -->
+            <h1 class="product-name">{{ product.name }}</h1>
+            
+            <!-- Rating Section -->
+            <div class="d-flex align-items-center mb">
+                <div class="star-rating me-2">
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                </div>
+                <span class="rating-value">(4.6)</span>
+            </div>
+
+            <p class="d-inline product-info">
+                Vendido e entregue por: <strong>ByteBaazar</strong> |
+                <span class="text-success"><strong>Em estoque</strong></span>
+            </p>
+            <p class="product-description">{{ product.description }}</p>
+
+            <!-- Preço e Botões -->
+            <div class="d-flex align-items-start mb-4">
+                <div class="me-4">
+                    <p class="product-price mb-0">
+                        <span class="price-amount">R$ {{ priceWithDiscount }}</span>
+                    </p>
+                    <p class="price-promotion">
+                        À vista no PIX com até <strong>10% OFF</strong>
+                    </p>
+                    <p class="price-discount">
+                        <span class="discount-price">R$ {{ product.price }}</span>
+                    </p>
+                    <p>Em até 10x de R$: {{ priceInstallment }} sem juros no cartão</p>
+                </div>
+                <div class="d-flex flex-column">
+                    <button class="btn btn-success btn-lg mb-2">
+                        <i class="fas fa-credit-card me-2"></i> COMPRAR
+                    </button>
+                    <button class="btn btn-primary btn-lg" (click)="addToCart()">
+                        <i class="fas fa-shopping-cart me-2"></i> ADICIONAR AO CARRINHO
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <app-footer></app-footer>

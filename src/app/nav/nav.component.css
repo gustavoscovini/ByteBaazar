@@ -2,56 +2,31 @@
   margin-bottom: 0;
 }
 
-.section-header .header-main {
+.navbar{
   background-color: #6779C8;
 }
 
-.section-header .header-main .logo {
-  max-height: 50px; /* ajuste conforme necessário */
+.section-header .navbar .logo {
+  max-height: 70px; /* ajuste conforme necessário */
 }
 
-.section-header .header-main .custom-search-input {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.section-header .header-main .input-group-append .btn {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.section-header .header-main .btn-outline-light {
+.section-header .navbar-brand {
+  font-size: 1.5rem;
   color: #fff;
-  border-color: #fff;
 }
 
-.section-header .header-main .btn-outline-light:hover {
-  background-color: #fff;
-  color: #343a40;
+.section-header .navbar-brand:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
-.section-header .navbar-light {
-  background-color: #f8f9fa;
+.image-below-header {
+  text-align: center; /* Alinha a imagem ao centro */
+  /* Espaço acima da imagem */
 }
 
-.section-header .navbar-light .navbar-nav .nav-link {
-  color: #343a40;
+.below-header-image {
+  max-width: 100%;    /* Garante que a imagem não ultrapasse a largura do contêiner */
+  height: auto;       /* Mantém a proporção da imagem */
 }
 
-.section-header .navbar-light .navbar-nav .nav-link:hover {
-  color: #007bff;
-}
-
-@media (max-width: 767px) {
-  .section-header .header-main .col-md-2 {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  .section-header .header-main .col-md-8 {
-    order: 1;
-  }
-  .section-header .header-main .col-md-2:last-child {
-    order: 2;
-  }
-}
