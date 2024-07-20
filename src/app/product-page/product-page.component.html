@@ -1,13 +1,13 @@
 <app-nav></app-nav>
 
-<div *ngIf="product" class="container my-4 p-4 ">
+<div *ngIf="product" class="container container-custom my-4 p-4 ">
   <h1 class="product-name">{{ product.name }}</h1>
 </div>
 
 <div *ngIf="product" class="container my-5">
   <div class="row">
     <!-- Imagem do Produto -->
-    <div class="col-md-6 mb-4">
+    <div class="col-md-6 mb-8">
       <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image img-fluid">
     </div>
 
