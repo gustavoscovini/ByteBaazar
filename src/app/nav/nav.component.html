@@ -1,14 +1,23 @@
-<header class="section-header">
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="assets/logo.png" alt="Logo" class="logo">
-        <span class="ms-4 logo-name">ByteBaazar</span>
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="#">
+      <img src="assets/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top text-light logo-white">
+      ByteBaazar
+    </a>
+    <form class="d-flex search-form mx-auto">
+      <input class="form-control me-1 custom-input" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn custom-btn" type="submit">
+        <i class="bi bi-search"></i>
+      </button>
+    </form>
+    <div class="d-flex align-items-center login-section">
+      <img src="assets/user.png" alt="User Icon" width="20" height="20" class="user-icon" href="#">
+      <a class="nav-link custom-login" href="#">
+        Faça Login<br>ou Cadastre-se
       </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
-  </nav>
-</header>
-
-<section class="image-below-header">
-  <img src="../../assets/sale.svg" alt="Imagem abaixo do header" class="below-header-image">
-</section>
+  </div>
+</nav>

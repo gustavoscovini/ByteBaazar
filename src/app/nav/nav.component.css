@@ -1,32 +1,58 @@
-.section-header .navbar {
-  margin-bottom: 0;
-}
-
-.navbar{
+.custom-navbar {
   background-color: #6779C8;
 }
 
-.section-header .navbar .logo {
-  max-height: 70px; /* ajuste conforme necessário */
+.search-form .form-control {
+  border-radius: 25px;
 }
 
-.section-header .navbar-brand {
-  font-size: 1.5rem;
+.custom-btn {
+  background-color: #ffffff;
+  color: #3a4781;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 25px;
+}
+
+.custom-btn:hover {
+  background-color: #3a4781;
   color: #fff;
 }
 
-.section-header .navbar-brand:hover {
-  color: #fff;
-  text-decoration: none;
+.nav-link.custom-login {
+  color: #fff !important;
+  font-size: 0.6rem; /* Tamanho do texto reduzido */
+  text-align: center; /* Centralizar o texto */
+  white-space: normal; /* Permitir quebra de linha */
 }
 
-.image-below-header {
-  text-align: center; /* Alinha a imagem ao centro */
-  /* Espaço acima da imagem */
+.navbar-brand img.logo-white {
+  background-color: #ffffff; /* Fundo branco */
+  border-radius: 0; /* Sem borda arredondada */
 }
 
-.below-header-image {
-  max-width: 100%;    /* Garante que a imagem não ultrapasse a largura do contêiner */
-  height: auto;       /* Mantém a proporção da imagem */
+.user-icon {
+  margin-right: 5px;
 }
 
+.login-section {
+  margin-left: 20px; /* Espaçamento entre a busca e o login */
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-form {
+  flex-grow: 1;
+  width: 50%; /* Largura inicial da barra de pesquisa */
+  max-width: 700px; /* Aumenta o valor máximo da largura */
+}
+
+@media (min-width: 992px) {
+  .navbar-nav {
+    flex-direction: row;
+  }
+}
