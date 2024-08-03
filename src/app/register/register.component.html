@@ -13,14 +13,14 @@
               <div class="col-md-6 mb-3">
                 <input type="text" class="form-control" formControlName="nome" placeholder="Nome completo*" required>
                 <div *ngIf="cadastroForm.get('nome')?.invalid && (cadastroForm.get('nome')?.dirty || cadastroForm.get('nome')?.touched)">
-                  <div *ngIf="cadastroForm.get('nome')?.errors?.['required']">Nome é obrigatório.</div>
+                  <div *ngIf="cadastroForm.get('nome')?.errors?.['required']" class="error-message">Nome é obrigatório.</div>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <input type="text" class="form-control" formControlName="cpf" placeholder="CPF*" required>
                 <div *ngIf="cadastroForm.get('cpf')?.invalid && (cadastroForm.get('cpf')?.dirty || cadastroForm.get('cpf')?.touched)">
-                  <div *ngIf="cadastroForm.get('cpf')?.errors?.['required']">CPF é obrigatório.</div>
-                  <div *ngIf="cadastroForm.get('cpf')?.errors?.['invalidCpf']">CPF inválido.</div>
+                  <div *ngIf="cadastroForm.get('cpf')?.errors?.['required']" class="error-message">CPF é obrigatório.</div>
+                  <div *ngIf="cadastroForm.get('cpf')?.errors?.['invalidCpf']" class="error-message">CPF inválido.</div>
                 </div>
               </div>
             </div>
@@ -28,14 +28,14 @@
               <div class="col-md-6 mb-3">
                 <input type="date" class="form-control" formControlName="dataNascimento" required>
                 <div *ngIf="cadastroForm.get('dataNascimento')?.invalid && (cadastroForm.get('dataNascimento')?.dirty || cadastroForm.get('dataNascimento')?.touched)">
-                  <div *ngIf="cadastroForm.get('dataNascimento')?.errors?.['required']">Data de nascimento é obrigatória.</div>
+                  <div *ngIf="cadastroForm.get('dataNascimento')?.errors?.['required']" class="error-message">Data de nascimento é obrigatória.</div>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <input type="email" class="form-control" formControlName="email" placeholder="E-mail*" required>
                 <div *ngIf="cadastroForm.get('email')?.invalid && (cadastroForm.get('email')?.dirty || cadastroForm.get('email')?.touched)">
-                  <div *ngIf="cadastroForm.get('email')?.errors?.['required']">E-mail é obrigatório.</div>
-                  <div *ngIf="cadastroForm.get('email')?.errors?.['email']">E-mail inválido.</div>
+                  <div *ngIf="cadastroForm.get('email')?.errors?.['required']" class="error-message">E-mail é obrigatório.</div>
+                  <div *ngIf="cadastroForm.get('email')?.errors?.['email']" class="error-message">E-mail inválido.</div>
                 </div>
               </div>
             </div>
@@ -43,14 +43,14 @@
               <div class="col-md-6 mb-3">
                 <input type="password" class="form-control" formControlName="senha" placeholder="Crie sua senha*" required>
                 <div *ngIf="cadastroForm.get('senha')?.invalid && (cadastroForm.get('senha')?.dirty || cadastroForm.get('senha')?.touched)">
-                  <div *ngIf="cadastroForm.get('senha')?.errors?.['required']">Senha é obrigatória.</div>
+                  <div *ngIf="cadastroForm.get('senha')?.errors?.['required']" class="error-message">Senha é obrigatória.</div>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <input type="password" class="form-control" formControlName="confirmaSenha" placeholder="Confirme sua senha*" required>
                 <div *ngIf="cadastroForm.get('confirmaSenha')?.invalid && (cadastroForm.get('confirmaSenha')?.dirty || cadastroForm.get('confirmaSenha')?.touched)">
-                  <div *ngIf="cadastroForm.get('confirmaSenha')?.errors?.['required']">Confirmação de senha é obrigatória.</div>
-                  <div *ngIf="cadastroForm.errors?.['mismatch']">As senhas não correspondem.</div>
+                  <div *ngIf="cadastroForm.get('confirmaSenha')?.errors?.['required']" class="error-message">Confirmação de senha é obrigatória.</div>
+                  <div *ngIf="cadastroForm.errors?.['mismatch']" class="error-message">As senhas não correspondem.</div>
                 </div>
               </div>
             </div>
@@ -66,8 +66,8 @@
             <div class="form-group mb-3">
               <input type="tel" class="form-control" formControlName="telefone" placeholder="Telefone celular*" required>
               <div *ngIf="cadastroForm.get('telefone')?.invalid && (cadastroForm.get('telefone')?.dirty || cadastroForm.get('telefone')?.touched)">
-                <div *ngIf="cadastroForm.get('telefone')?.errors?.['required']">Telefone é obrigatório.</div>
-                <div *ngIf="cadastroForm.get('telefone')?.errors?.['invalidPhone']">Telefone inválido.</div>
+                <div *ngIf="cadastroForm.get('telefone')?.errors?.['required']" class="error-message">Telefone é obrigatório.</div>
+                <div *ngIf="cadastroForm.get('telefone')?.errors?.['invalidPhone']" class="error-message">Telefone inválido.</div>
               </div>
             </div>
             <div class="form-check mb-3">
