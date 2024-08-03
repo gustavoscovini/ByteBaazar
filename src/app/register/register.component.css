@@ -1,0 +1,18 @@
+.register-container {
+    margin-top: 50px;
+  }
+  
+  .card-header {
+    background-color: #6779C8;
+    color: white;
+  }
+  
+  .invalid-feedback {
+    display: block;
+    color: red;
+  }
+  
+  .is-invalid {
+    border-color: red;
+  }
+  

@@ -8,6 +8,9 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductService } from './product.service';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,11 +18,14 @@ import { FooterComponent } from './footer/footer.component';
     NavComponent,
     FooterComponent,
     ProductListComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
