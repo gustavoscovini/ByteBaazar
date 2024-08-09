@@ -19,3 +19,7 @@
   .error-message {
     color: red;
   }
+
+  .container{
+    margin-bottom: 25px;
+  }

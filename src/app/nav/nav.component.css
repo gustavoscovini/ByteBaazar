@@ -26,6 +26,10 @@
   white-space: normal; /* Permitir quebra de linha */
 }
 
+.text-white {
+  color: white; 
+}
+
 .navbar-brand img.logo-white {
   background-color: #ffffff; /* Fundo branco */
   border-radius: 0; /* Sem borda arredondada */
