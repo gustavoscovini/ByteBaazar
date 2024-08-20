@@ -1,0 +1,25 @@
+.card-header {
+    border-bottom: none;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .text-primary {
+    color: #0275d8 !important;
+  }
+  
+  .text-danger {
+    color: #d9534f !important;
+  }
+  
+  body{
+    margin-bottom: 80px;
+  }
+  

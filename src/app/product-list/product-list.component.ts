@@ -15,11 +15,9 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.productService.getProducts();
-    console.log('hehe')
   }
 
   goToProduct(productId: number): void {
     this.router.navigate(['/product', productId]);
-    console.log('entra aqui')
   }
 }
