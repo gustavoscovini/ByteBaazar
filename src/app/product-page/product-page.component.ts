@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
+import { DiscountService } from '../services/discount.service';
 
 @Component({
   selector: 'app-product-page',
@@ -12,7 +13,7 @@ export class ProductPageComponent implements OnInit {
   priceWithDiscount: string  = '';
   priceInstallment: string  = '';
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private discountService: DiscountService) { }
 
   ngOnInit(): void {
     const productId = Number(this.route.snapshot.paramMap.get('id'));
@@ -20,15 +21,13 @@ export class ProductPageComponent implements OnInit {
       if (this.product) {
         // Increase the price by 10%
         const increasedPrice = this.product.price * 1.10;
-        this.product.price = this.formatPrice(this.product.price);
-        this.priceWithDiscount = this.formatPrice(increasedPrice);
-        this.priceInstallment = this.formatPrice(increasedPrice / 10);
+        this.product.price = this.discountService.formatPrice(this.product.price);
+        this.priceWithDiscount = this.discountService.formatPrice(increasedPrice);
+        this.priceInstallment = this.discountService.formatPrice(increasedPrice / 10);
       }
     }
   
-    formatPrice(price: number): string {
-      return price.toFixed(2).replace('.', ',');
-    }
+
 
       // Verifica se o produto foi encontrado
       // if (!this.product) {

@@ -50,9 +50,9 @@
           <p class="text-muted">(em até 10x de R$ {{ (totalProducts / 10) | number:'1.2-2' }} sem juros)</p>
           <div class="d-flex justify-content-between bg-light p-2">
             <h5 class="mb-0 text-primary">Valor à vista no PIX:</h5>
-            <h5 class="mb-0 text-primary">R$ {{ totalComDescontoPix | number:'1.2-2' }}</h5>
+            <h5 class="mb-0 text-primary">R$ {{ TotalWithPixDiscount | number:'1.2-2' }}</h5>
           </div>
-          <p class="text-success text-end">Economize: R$ {{ valorDescontoPix | number:'1.2-2' }}</p>
+          <p class="text-success text-end">Economize: R$ {{ pixDiscount | number:'1.2-2' }}</p>
         </div>
       </div>
       <button class="btn btn-primary w-100 mb-3">Ir para o pagamento</button>

@@ -1,47 +1,85 @@
-.sale-btn {
-    border-radius: 20px; 
-    background-color: #6779C8; 
-    color: white;
-    font-weight:bold; 
-    border: none; 
-  }
-  
-  .sale-btn:hover {
-    background-color:#3a4781; 
-  }
-
-  .custom-text {
-    font-size: 25px;
-    font-weight: bold; 
-    color:black;
-    margin-left: 10px;
-    vertical-align:middle; 
-  }
-
-/* src/app/product-list/product-list.component.css */
-.product-image-container {
-  display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente (se necessário) */
-  width: 100%; /* Certifique-se de que o contêiner ocupa toda a largura disponível */
+.container {
+  margin-top: 20px;
 }
 
-.product-image {
-  max-width: 60%; /* Define a largura máxima da imagem */
-  height: auto; /* Mantém a proporção da imagem */
+.card {
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s;
 }
 
-  .star-rating {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  
-  .star {
-    font-size: 20px;
-    color: lightgray;
-  }
-  
-  .star.filled {
-    color: black;
+.card:hover {
+  transform: scale(1.05);
+  border-color: #6779C8;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.rating {
+  text-align: center;
+  margin: 10px 0px 10px 0px;
+}
+
+.rating i {
+  font-size: 1rem;
+  color: #ffcc00;
+}
+
+.card-footer {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e1e1e1;
+}
+
+.card-footer button {
+  background-color: #6779C8;
+  color: white;
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.card-footer button:hover {
+  background-color: #6779C8;
+}
+
+.text-muted.text-decoration-line-through {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.text-primary {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #007bff !important;
+}
+
+.text-muted.small {
+  font-size: 0.9rem;
+  text-align: center;
 }
