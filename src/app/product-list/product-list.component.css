@@ -1,5 +1,14 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   margin-top: 20px;
+  flex-grow: 1; /* Faz com que o container cresça conforme o conteúdo */
+  padding-bottom: 2rem; /* Espaçamento para evitar que o conteúdo se encoste ao footer */
 }
 
 .card {

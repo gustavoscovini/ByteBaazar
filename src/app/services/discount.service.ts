@@ -8,7 +8,7 @@ export class DiscountService {
   constructor() { }
 
   TotalWithPixDiscount(price: number): number {
-    const discountRate = 0.10; // 10% de desconto
+    const discountRate = 0.10;
     return price - (price * discountRate);
   }
 

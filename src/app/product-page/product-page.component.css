@@ -1,89 +1,87 @@
-/* Ajusta o tamanho da fonte e o espaçamento para o nome do produto */
-
 .container-custom {
-  max-width: 1400px; /* Increase the maximum width as needed */
-  margin: 0 auto; /* Center the container horizontally */
-  padding: 2rem; /* Adjust padding for better spacing */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
 }
+
 .product-name {
-    font-size: 2.3rem; /* Tamanho maior para o nome do produto */
-    margin-bottom: 1rem; /* Espaço abaixo do nome do produto */
-  }
-  
-  /* Ajusta o tamanho da fonte e o espaçamento para as informações do produto */
-  .product-info {
-    font-size: 1.2rem; /* Tamanho da fonte maior para a informação do produto */
-    margin-bottom: 1rem; /* Espaço abaixo da informação do produto */
-    line-height: 3; /* Espaço entre linhas */
-  }
-  
-  /* Ajusta o tamanho da fonte e o espaçamento para a descrição do produto */
-  .product-description {
-    font-size: 1.0rem; /* Tamanho da fonte para a descrição do produto */
-    margin-bottom: 1rem; /* Espaço abaixo da descrição do produto */
-  }
-  
-  /* Ajusta o tamanho da fonte e o espaçamento para o preço do produto */
-  .product-price {
-    font-size: 1.5rem; /* Aumenta o tamanho da fonte do preço */
-    font-weight: bold; /* Deixa o preço em negrito */
-    margin-bottom: 0.3rem; /* Espaço abaixo do preço */
-  }
-  
-  /* Ajusta o tamanho e o estilo do valor do preço */
-  .price-amount {
-    color: #007bff; /* Cor azul para o valor do preço */
-    font-size: 3rem; /* Tamanho maior para o valor do preço */
-  }
-  
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+}
+
+.product-info {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 3;
+}
+
+.product-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.price-amount {
+  color: #007bff;
+  font-size: 3rem;
+}
 
 .price-promotion {
-    font-size: 1.2rem; /* Tamanho menor para a promoção */
-  }
-  
-  .price-discount {
-    font-size: 1.2rem; /* Tamanho do texto do preço com desconto */ 
-    font-weight: bold;
-  }
+  font-size: 1.2rem;
+}
 
-  .star-rating {
-    font-size: 1.5rem; /* Adjust size as needed */
-  }
-  
-  .rating-value {
-    font-size: 1.2rem;
-    color: #333;
-  }
+.price-discount {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 
-  .d-flex {
-    display: flex;
-  }
-  
-  .align-items-start {
-    align-items: flex-start;
-  }
-  
-  .me-4 {
-    margin-right: 1.5rem; /* Espaço entre o preço e os botões */
-  }
-  
-  .btn-primary {
-    background-color: #007bff; /* Cor de fundo do botão "Adicionar ao Carrinho" */
-    border-color: #007bff;
-  }
-  
-  .btn-success {
-    background-color: #28a745; /* Cor de fundo do botão "Comprar" */
-    border-color: #28a745;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3; /* Cor de fundo do botão "Adicionar ao Carrinho" ao passar o mouse */
-    border-color: #004080;
-  }
-  
-  .btn-success:hover {
-    background-color: #1e7e34; /* Cor de fundo do botão "Comprar" ao passar o mouse */
-    border-color: #1c7430;
-  }
-  
+.star-rating {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.rating-value {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.me-4 {
+  margin-right: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004080;
+}
+
+.btn-success:hover {
+  background-color: #1e7e34;
+  border-color: #1c7430;
+}
+
+.checked {
+  color: #FFD700; /* Cor amarela para estrelas preenchidas */
+}

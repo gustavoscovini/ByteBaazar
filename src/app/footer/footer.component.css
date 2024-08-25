@@ -1,60 +1,76 @@
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.content {
-  flex: 1;
-}
-
 .footer {
-  margin-top: auto;
-  background-color: #f0f0f0;
-  color: #333;
+/* Cor de fundo para todo o footer */
+  color: #fff;
+  padding: 2rem 0;
+  width: 100%; /* Garante que o footer ocupe 100% da largura */
 }
 
-.footer-info {
-  padding: 20px 0;
+body{
+  background-color: #333;
 }
-
-.footer-social-media .img-placeholder {
-  width: 30px;
-  height: 30px;
-  background-color: #555;
-  margin-right: 10px;
-}
-
-.footer-social-media .social-media-icon {
-  width: 100%;
-  height: auto;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: #333; 
 }
 
 .footer-logo {
   max-width: 100px;
 }
 
-.bg-dark {
-  background-color: #343a40 !important;
+.footer-text {
+  color: #ccc;
+  line-height: 1.6;
+  margin-left: 1rem;
 }
 
-.text-white {
-  color: #fff !important;
+.footer ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-.img-placeholder {
-  width: 40px; /* ajuste conforme necessário */
-  height: 40px;
-  border-radius: 50%;
+.footer ul li {
+  color: #ccc;
 }
 
-.social-media-icon {
-  color: #fff; /* Cor do ícone */
-  font-size: 20px; /* Tamanho do ícone */
+.footer i {
+  color: #00FFFF;
+}
+
+hr.my-4 {
+  margin: 0;
+  margin-block-start: 0;
+  color: #fff;
+}
+
+.footer .text-center p {
+  margin: 0;
+  color: #ccc;
+}
+
+.text-light {
+  color: #ccc !important;
+  margin: 0;
+}
+
+.icon-size {
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  color: #007bff;
+}
+
+.about{
+  margin: 20px 0 0 0;
+}
+
+.row.justify-content-between {
+  margin-bottom: 1rem; /* Ajusta o espaçamento entre o conteúdo e o rodapé */
+}
+
+.row .col-md-6 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espaça o logotipo e o texto horizontalmente */
 }

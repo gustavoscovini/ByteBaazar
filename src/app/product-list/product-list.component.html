@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4 flex-grow-1">
   <div class="row">
     <div class="col-md-12">
       <h2 class="text-center mb-4">Produtos</h2>
@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of products">
-      <div class="card h-100">
+      <div class="card h-100" (click)="goToProduct(product.id)"> <!-- Adicione o clique aqui -->
         <div class="rating mb-2">
           <i class="fa fa-star" *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [ngClass]="{'checked': i < product.rating}"></i>
         </div>
@@ -20,8 +20,8 @@
           </div>
         </div>
         <div class="card-footer text-center">
-          <button class="btn btn-custom w-100" (click)="addToCart(product)">
-            <i class="fa fa-shopping-cart me-2"></i>Comprar
+          <button class="btn btn-custom w-100" (click)="addToCart(product); $event.stopPropagation()">
+            <i class="fa fa-shopping-cart me-2"></i>Adicionar ao Carrinho
           </button>
         </div>
       </div>
