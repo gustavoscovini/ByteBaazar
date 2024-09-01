@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router'; // Importar Router
+import { RegisterService } from '../services/register.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +12,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   cadastroForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private registerService: RegisterService, private toastr: ToastrService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.cadastroForm = this.fb.group({
@@ -21,14 +25,25 @@ export class RegisterComponent implements OnInit {
       confirmaSenha: ['', Validators.required],
       genero: [''],
       telefone: ['', [Validators.required, this.phoneValidator]],
-      origem: ['', Validators.required],
       ofertas: [false]
     }, { validator: this.passwordMatchValidator });
   }
 
   onSubmit() {
     if (this.cadastroForm.valid) {
-      console.log(this.cadastroForm.value);
+      const formData = this.cadastroForm.value;
+
+      this.registerService.register(formData).subscribe(
+        (response: any) => {
+          this.toastr.success('Usuário registrado com sucesso!', 'Sucesso');
+          this.router.navigate(['/products']);
+        },
+        (error: any) => {
+          this.toastr.error(error.error.message);
+        }
+      );
+    } else {
+      console.log('Formulário inválido');
     }
   }
 
@@ -36,19 +51,18 @@ export class RegisterComponent implements OnInit {
     const cpf = control.value;
     if (!cpf) return null;
 
-    let sum;
+    let sum = 0;
     let remainder;
-    sum = 0;
-    if (cpf === '00000000000') return { invalidCpf: true };
+    if (cpf.length !== 11 || isNaN(cpf)) return { invalidCpf: true };
 
-    for (let i = 1; i <= 9; i++) sum = sum + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+    for (let i = 1; i <= 9; i++) sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
     remainder = (sum * 10) % 11;
 
     if (remainder === 10 || remainder === 11) remainder = 0;
     if (remainder !== parseInt(cpf.substring(9, 10))) return { invalidCpf: true };
 
     sum = 0;
-    for (let i = 1; i <= 10; i++) sum = sum + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+    for (let i = 1; i <= 10; i++) sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
     remainder = (sum * 10) % 11;
 
     if (remainder === 10 || remainder === 11) remainder = 0;
@@ -65,8 +79,6 @@ export class RegisterComponent implements OnInit {
   }
 
   passwordMatchValidator(group: FormGroup) {
-    if (!group) return null;
-
     const senha = group.get('senha')?.value;
     const confirmaSenha = group.get('confirmaSenha')?.value;
 

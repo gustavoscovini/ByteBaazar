@@ -1,4 +1,3 @@
-// src/app/product-list/product-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
@@ -13,36 +12,42 @@ export class ProductListComponent implements OnInit {
   products: any[] = [];
   productsWithDiscount: any[] = [];
 
-  constructor(private router: Router, private productService: ProductService, private discountService:DiscountService) { 
-
-  }
+  constructor(
+    private router: Router, 
+    private productService: ProductService, 
+    private discountService: DiscountService
+  ) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
-    this.applyPixDiscount();
-    this.products = this.products.map(product => {
-      return {
-        ...product,
-        priceWithPixDiscount: this.discountService.TotalWithPixDiscount(product.price)
-      };
-    });
+    this.loadProducts();
+    console.log(this.loadProducts());
+  }
+
+  loadProducts(): void {
+    this.productService.getProducts().subscribe(
+      data => {
+        this.products = data;
+        this.applyPixDiscount();
+      },
+      error => {
+        console.error('Erro ao carregar produtos:', error);
+      }
+    );
   }
 
   goToProduct(productId: number): void {
     this.router.navigate(['/product', productId]);
   }
 
-  addToCart(produto: any) {
+  addToCart(produto: any): void {
     console.log(`Produto ${produto.name} adicionado ao carrinho!`);
-    // Lógica para adicionar o produto ao carrinho
   }
 
   applyPixDiscount(): void {
-    this.productsWithDiscount = this.productService.getProducts().map(product => ({
+    this.productsWithDiscount = this.products.map(product => ({
       ...product,
       priceWithPixDiscount: this.discountService.TotalWithPixDiscount(product.price)
     }));
     console.log(this.productsWithDiscount);
   }
-
 }

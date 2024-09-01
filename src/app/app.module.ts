@@ -13,6 +13,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
+import { RegisterProductComponent } from './product-register/product-register.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +28,19 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ProductPageComponent,
     RegisterComponent,
     LoginComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    RegisterProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
-  providers: [ProductService],
+  providers: [provideAnimations(), // required animations providers
+    provideToastr(),ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

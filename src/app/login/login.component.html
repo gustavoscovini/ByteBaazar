@@ -5,25 +5,25 @@
         <img src="../../assets/login.svg" class="img-fluid" alt="Login image">
       </div>
       <div class="col-md-6 col-lg-5">
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <h3 class="text-center mb-4">FAZER LOGIN</h3>
 
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="email" class="form-control form-control-lg"
+            <input type="email" id="email" formControlName="email" class="form-control form-control-lg"
               placeholder="Digite seu email" required />
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
-            <input type="password" id="password" class="form-control form-control-lg"
+            <input type="password" id="password" formControlName="password" class="form-control form-control-lg"
               placeholder="Digite sua senha" required />
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="rememberMe" />
+              <input class="form-check-input me-2" type="checkbox" id="rememberMe" />
               <label class="form-check-label" for="rememberMe">
                 Lembrar de mim
               </label>
