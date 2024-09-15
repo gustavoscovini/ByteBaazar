@@ -20,7 +20,6 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
-    console.log(this.loadProducts());
   }
 
   loadProducts(): void {
@@ -39,8 +38,8 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['/product', productId]);
   }
 
-  addToCart(produto: any): void {
-    console.log(`Produto ${produto.name} adicionado ao carrinho!`);
+  addToCart(product: any): void {
+    console.log(`Produto ${product.name} adicionado ao carrinho!`);
   }
 
   applyPixDiscount(): void {

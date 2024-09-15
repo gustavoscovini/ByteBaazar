@@ -5,20 +5,37 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of products">
+    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of productsWithDiscount">
       <div class="card h-100" (click)="goToProduct(product.id)">
+        <!-- Rating stars -->
         <div class="rating mb-2">
           <i class="fa fa-star" *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [ngClass]="{'checked': i < product.rating}"></i>
         </div>
-        <img class="card-img-top" [src]="'http://localhost:3000/uploads/' + product.image" alt="{{ product.name }}">
+        <!-- Product image -->
+        <img class="card-img-top" [src]="'http://localhost:3000' + product.imageUrl" alt="{{ product.name }}">
+
+        <!-- Product details -->
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
-          <div class="card-text">
-            <p class="text-muted text-decoration-line-through">R$ {{ product.price | number:'1.2-2' }}</p>
-            <p class="text-primary">R$ {{ product.priceWithPixDiscount | number:'1.2-2' }} <small>à vista no PIX</small></p>
-            <p class="text-muted small">ou em até 10x de R$ {{ product.priceWithPixDiscount | number:'1.2-2' }} sem juros</p>
+
+          <!-- Prices layout -->
+          <div class="d-flex flex-column">
+            <!-- Original price (top left) -->
+            <p class="text-muted text-decoration-line-through mb-0" style="font-size: 14px; align-self: flex-start;">
+              R$ {{ product.price | number:'1.2-2' }}
+            </p>
+
+            <!-- Discounted price (bottom left) -->
+            <p class="text-primary mt-auto" style="font-size: 20px; align-self: flex-start;">
+              R$ {{ product.priceWithPixDiscount | number:'1.2-2' }} 
+              <small style="font-size: 12px;">à vista no PIX</small>
+            </p>
           </div>
+
+          <p class="text-muted small mt-2">ou em até <strong>10x de R$ {{ product.price / 10 | number:'1.2-2' }} sem juros</strong></p>
         </div>
+
+        <!-- Add to cart button -->
         <div class="card-footer text-center">
           <button class="btn btn-custom w-100" (click)="addToCart(product); $event.stopPropagation()">
             <i class="fa fa-shopping-cart me-2"></i>Adicionar ao Carrinho
