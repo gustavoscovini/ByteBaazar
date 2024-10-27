@@ -7,25 +7,17 @@
   <div class="row">
     <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of productsWithDiscount">
       <div class="card h-100" (click)="goToProduct(product.id)">
-        <!-- Rating stars -->
         <div class="rating mb-2">
           <i class="fa fa-star" *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [ngClass]="{'checked': i < product.rating}"></i>
         </div>
-        <!-- Product image -->
         <img class="card-img-top" [src]="'http://localhost:3000' + product.imageUrl" alt="{{ product.name }}">
 
-        <!-- Product details -->
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
-
-          <!-- Prices layout -->
           <div class="d-flex flex-column">
-            <!-- Original price (top left) -->
             <p class="text-muted text-decoration-line-through mb-0" style="font-size: 14px; align-self: flex-start;">
               R$ {{ product.price | number:'1.2-2' }}
             </p>
-
-            <!-- Discounted price (bottom left) -->
             <p class="text-primary mt-auto" style="font-size: 20px; align-self: flex-start;">
               R$ {{ product.priceWithPixDiscount | number:'1.2-2' }} 
               <small style="font-size: 12px;">à vista no PIX</small>

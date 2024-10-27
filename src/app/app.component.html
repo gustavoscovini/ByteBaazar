@@ -1,3 +1,15 @@
 <app-nav></app-nav>
+<div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">
+      <img src="assets/logo.png" alt="Logo" width="30" height="30"> ByteBaazar
+    </a>
+    <div class="d-flex">
+      <a class="nav-link" [routerLink]="['/product-crud-list']">CRUD de Produtos</a>
+      <a class="nav-link" [routerLink]="['/login']">Login</a>
+      <a class="nav-link" [routerLink]="['/register']">Register</a>
+      <a class="nav-link" [routerLink]="['/register-product']">Registrar produto</a>
+      <a class="nav-link" [routerLink]="['/shopping-cart']">Carrinho</a>
+    </div>
+  </div>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

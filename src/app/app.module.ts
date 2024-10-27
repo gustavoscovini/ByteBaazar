@@ -18,6 +18,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { RegisterProductComponent } from './product-register/product-register.component';
+import { ProductCrudListComponent } from './product-crud-list/product-crud-list.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { RegisterProductComponent } from './product-register/product-register.co
     RegisterComponent,
     LoginComponent,
     ShoppingCartComponent,
-    RegisterProductComponent
+    RegisterProductComponent,
+    ProductCrudListComponent,
+    ProductEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,8 +43,8 @@ import { RegisterProductComponent } from './product-register/product-register.co
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [provideAnimations(), // required animations providers
-    provideToastr(),ProductService],
+  providers: [provideAnimations(),
+  provideToastr(), ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

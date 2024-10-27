@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { DiscountService } from '../services/discount.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-page',
@@ -10,38 +11,59 @@ import { DiscountService } from '../services/discount.service';
 })
 export class ProductPageComponent implements OnInit {
   product: any;
-  priceWithDiscount: string  = '';
-  priceInstallment: string  = '';
+  priceWithDiscount: string = '';
+  priceInstallment: string = '';
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private discountService: DiscountService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private discountService: DiscountService,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
     const productId = Number(this.route.snapshot.paramMap.get('id'));
-      this.product = { id: 4, rating: 4, imageUrl: "https://i.zst.com.br/thumbs/12/14/f/1585461727.jpg", name: 'PLACA DE VIDEO MSI GEFORCE RTX 3060 VENTUS 2X OC, 12GB, GDDR6', description: 'A NVIDIA GeForce RTX 3070 é uma placa de vídeo de alta performance, projetada para gamers e criadores que exigem o máximo de seus sistemas. Equipado com a arquitetura Ampere da NVIDIA, a RTX 3070 oferece um desempenho incrível para jogos em 4K e edição de vídeo de alta resolução, com suporte para ray tracing em tempo real e inteligência artificial.', price: 300 }
-      if (this.product) {
-        const increasedPrice = this.product.price * 0.9;
-        this.product.price = this.discountService.formatPrice(this.product.price);
-        this.priceWithDiscount = this.discountService.formatPrice(increasedPrice);
-        this.priceInstallment = this.discountService.formatPrice(increasedPrice / 10);
+
+    this.productService.getProductById(productId).subscribe(
+      (data) => {
+        this.product = data;
+
+        if (this.product) {
+          this.product.imageUrl = 'http://localhost:3000' + this.product.imageUrl;
+
+          const originalPrice = this.product.price;
+          const discountedPrice = this.discountService.TotalWithPixDiscount(originalPrice);
+          this.product.price = this.discountService.formatPrice(originalPrice);
+          this.priceWithDiscount = this.discountService.formatPrice(discountedPrice);
+          this.priceInstallment = this.discountService.formatPrice(originalPrice / 10);
+        }
+      },
+      (error) => {
+        console.error('Erro ao carregar produto:', error);
       }
-    }
-  
-
-
-      // Verifica se o produto foi encontrado
-      // if (!this.product) {
-      //   console.error('Produto não encontrado');
-      // }
-    // } else {
-    //   console.error('ID do produto inválido');
-    // }
-
-    addToCart() {
-      // Implemente a lógica para adicionar o produto ao carrinho
-      if (this.product) {
-        console.log(`${this.product.name} adicionado ao carrinho!`);
-      }
-    }
+    );
   }
 
-
+  addToCart() {
+    if (this.product) {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    
+      const existingProduct = cartItems.find((item: any) => item.id === this.product.id);
+      
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        cartItems.push({
+          id: this.product.id,
+          name: this.product.name,
+          price: this.priceWithDiscount,
+          image: this.product.imageUrl,
+          quantity: 1
+        });
+      }
+  
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      this.toastr.success('Produto adicionado ao carrinho!', 'Sucesso');
+    }
+  }
+}

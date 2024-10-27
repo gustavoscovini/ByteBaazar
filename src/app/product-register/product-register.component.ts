@@ -51,11 +51,10 @@ export class RegisterProductComponent implements OnInit {
 
       const fileInput = document.getElementById('imagem') as HTMLInputElement;
       if (fileInput?.files?.length) {
-        formData.append('imagem', fileInput.files[0]); // Adiciona o arquivo ao FormData
+        formData.append('imagem', fileInput.files[0]);
       }
 
-      console.log('FormData:', formData.get('imagem')); // Debug para verificar se a imagem está sendo capturada
-
+      console.log('FormData:', formData.get('imagem'));
       this.productService.registerProduct(formData).subscribe(
         response => {
           this.toastr.success('Produto registrado com sucesso!', 'Sucesso');

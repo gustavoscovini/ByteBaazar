@@ -1,8 +1,10 @@
+// src/app/components/register/register.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; // Importar Router
 import { RegisterService } from '../services/register.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../services/auth.service'; // Novo serviço de autenticação
 
 @Component({
   selector: 'app-register',
@@ -12,8 +14,13 @@ import { ToastrService } from 'ngx-toastr';
 export class RegisterComponent implements OnInit {
   cadastroForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private registerService: RegisterService, private toastr: ToastrService,
-    private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private registerService: RegisterService,
+    private toastr: ToastrService,
+    private router: Router,
+    private authService: AuthService // Injetar o AuthService
+  ) { }
 
   ngOnInit(): void {
     this.cadastroForm = this.fb.group({
@@ -35,6 +42,7 @@ export class RegisterComponent implements OnInit {
 
       this.registerService.register(formData).subscribe(
         (response: any) => {
+          this.authService.login(formData.nome);
           this.toastr.success('Usuário registrado com sucesso!', 'Sucesso');
           this.router.navigate(['/products']);
         },

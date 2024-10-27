@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { DiscountService } from '../services/discount.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -15,7 +16,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private router: Router, 
     private productService: ProductService, 
-    private discountService: DiscountService
+    private discountService: DiscountService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -39,14 +41,29 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: any): void {
-    console.log(`Produto ${product.name} adicionado ao carrinho!`);
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    
+    const existingProduct = cartItems.find((item: any) => item.id === product.id);
+    
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else { 
+      cartItems.push({
+        id: product.id,
+        name: product.name,
+        price: product.priceWithPixDiscount,
+        image: product.imageUrl,
+        quantity: 1
+      });
+    }
+  
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    this.toastr.success('Produto adicionado ao carrinho!', 'Sucesso');
   }
-
   applyPixDiscount(): void {
     this.productsWithDiscount = this.products.map(product => ({
       ...product,
       priceWithPixDiscount: this.discountService.TotalWithPixDiscount(product.price)
     }));
-    console.log(this.productsWithDiscount);
   }
 }
