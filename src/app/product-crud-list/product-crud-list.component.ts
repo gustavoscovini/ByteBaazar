@@ -44,13 +44,15 @@ export class ProductCrudListComponent implements OnInit {
     if (confirm('Tem certeza que deseja deletar este produto?')) {
       this.productService.deleteProduct(productId).subscribe(
         () => {
-          this.toastr
+          this.toastr.success('Produto excluído com sucesso!');
           this.loadProducts();
         },
         (error) => {
           console.error('Erro ao deletar produto:', error);
+          this.toastr.error('Erro ao excluir o produto!');
         }
       );
     }
   }
 }
+

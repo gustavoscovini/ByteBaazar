@@ -7,8 +7,8 @@ html, body {
 
 .container {
   margin-top: 20px;
-  flex-grow: 1; /* Faz com que o container cresça conforme o conteúdo */
-  padding-bottom: 2rem; /* Espaçamento para evitar que o conteúdo se encoste ao footer */
+  flex-grow: 1; 
+  padding-bottom: 2rem; 
 }
 
 .card {

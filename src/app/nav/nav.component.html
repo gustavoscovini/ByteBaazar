@@ -26,9 +26,9 @@
         </a>
       </ng-template>
 
-      <!-- Botão do carrinho com contador -->
+
       <div class="cart-icon ms-3">
-        <a [routerLink]="['/cart']" class="position-relative">
+        <a [routerLink]="['/shopping-cart']" class="position-relative">
           <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
           <span *ngIf="cartItemCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{ cartItemCount }}

@@ -10,7 +10,11 @@ export class AuthService {
 
   constructor() {
     const storedUserName = localStorage.getItem(this.userKey);
-    this.userNameSubject.next(storedUserName);
+    if (storedUserName) {
+      this.userNameSubject.next(storedUserName);
+    } else {
+      this.userNameSubject.next(null);
+    }
   }
 
   login(userName: string): void {
@@ -18,17 +22,16 @@ export class AuthService {
     this.userNameSubject.next(userName);
   }
 
-
   logout(): void {
     localStorage.removeItem(this.userKey);
     this.userNameSubject.next(null);
   }
 
   getUserName(): string | null {
-    return localStorage.getItem(this.userKey);
+    return localStorage.getItem(this.userKey);  
   }
 
   getUserNameObservable() {
-    return this.userNameSubject.asObservable();
+    return this.userNameSubject.asObservable(); 
   }
 }

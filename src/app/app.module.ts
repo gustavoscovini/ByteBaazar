@@ -20,6 +20,7 @@ import { provideToastr } from 'ngx-toastr';
 import { RegisterProductComponent } from './product-register/product-register.component';
 import { ProductCrudListComponent } from './product-crud-list/product-crud-list.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     RegisterProductComponent,
     ProductCrudListComponent,
     ProductEditComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
