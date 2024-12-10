@@ -13,10 +13,12 @@
     </form>
 
     <div class="d-flex align-items-center login-section">
-      <img src="assets/user.png" alt="User Icon" width="20" height="20" class="user-icon">
       <ng-container *ngIf="userName; else loginLink">
-        <span class="nav-link custom-login">{{ userName }}</span>
-        <button class="btn btn-custom-logout" (click)="logout()">
+        <div class="d-flex align-items-center user-info">
+          <img src="assets/user.png" alt="User Icon" width="30" height="30" class="user-icon me-2">
+          <span class="nav-link custom-login">{{ userName }}</span>
+        </div>
+        <button class="btn btn-custom-logout ms-2" (click)="logout()">
           <i class="bi bi-box-arrow-right"></i> Logout
         </button>
       </ng-container>
@@ -26,13 +28,19 @@
         </a>
       </ng-template>
 
-
       <div class="cart-icon ms-3">
         <a [routerLink]="['/shopping-cart']" class="position-relative">
           <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
           <span *ngIf="cartItemCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{ cartItemCount }}
           </span>
+        </a>
+      </div>
+
+
+      <div class="ms-3" *ngIf="userName">
+        <a class="btn btn-secondary" [routerLink]="['/product-crud-list']">
+          <i class="bi bi-tools"></i> Produtos
         </a>
       </div>
 

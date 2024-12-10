@@ -71,7 +71,7 @@ it('Deve retornar erro ao tentar registrar um usuário sem email', async () => {
   });
   
   it('Deve retornar um produto específico', async () => {
-    const productId = 5; // Defina um ID válido de produto ou crie um produto dinamicamente
+    const productId = 5;
     const response = await request(app).get(`/api/products/${productId}`);
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('id', productId);

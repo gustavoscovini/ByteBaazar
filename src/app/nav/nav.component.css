@@ -21,9 +21,9 @@
 
 .nav-link.custom-login {
   color: #fff !important;
-  font-size: 0.6rem; /* Tamanho do texto reduzido */
-  text-align: center; /* Centralizar o texto */
-  white-space: normal; /* Permitir quebra de linha */
+  font-size: 0.6rem; 
+  text-align: center; 
+  white-space: normal; 
 }
 
 .text-white {
@@ -31,8 +31,8 @@
 }
 
 .navbar-brand img.logo-white {
-  background-color: #ffffff; /* Fundo branco */
-  border-radius: 0; /* Sem borda arredondada */
+  background-color: #ffffff; 
+  border-radius: 0; 
 }
 
 .user-icon {
@@ -40,7 +40,7 @@
 }
 
 .login-section {
-  margin-left: 20px; /* Espaçamento entre a busca e o login */
+  margin-left: 20px; 
 }
 
 .container-fluid {
@@ -51,8 +51,8 @@
 
 .search-form {
   flex-grow: 1;
-  width: 50%; /* Largura inicial da barra de pesquisa */
-  max-width: 700px; /* Aumenta o valor máximo da largura */
+  width: 50%; 
+  max-width: 700px; 
 }
 
 @media (min-width: 992px) {
